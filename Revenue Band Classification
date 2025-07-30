@@ -1,0 +1,31 @@
+Objective:
+Classify companies into revenue bands and tag them based on revenue. Also extract unique segments
+
+companies = [
+  {"name": "Tata", "revenue": 2500000, "segment": "Automobile"},
+  {"name": "Infosys", "revenue": 950000, "segment": "IT"},
+  {"name": "HDFC", "revenue": 1500000, "segment": "Finance"},
+  {"name": "Asian Paints", "revenue": 600000, "segment": "FMCG"},
+  {"name": "Zomato", "revenue": 300000, "segment": "Tech"},
+  {"name": "Swiggy", "revenue": 400000, "segment": "Tech"}
+]
+
+
+#Classify Revenue Band
+for c in companies:
+  if c['revenue'] > 2000000:
+    c['band'] = "High"
+  elif c['revenue'] > 1000000:
+    c['band'] = "Medium"
+  else:
+    c['band'] = "low"
+
+#Print Reports
+for c in companies:
+  print(f"{c['name']} is in {c['band']} Revenue Band with revenue of Rs. {c['revenue']}")
+
+# Step 3: Extract Unique Segments (using Set)
+segments = set()
+for c in companies:
+  segments.add(c['segment'])
+print(f"Unique Segments, {segments}")
